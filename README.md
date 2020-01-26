@@ -1,3 +1,3 @@
 # KATSPYW06PYTScrumLab
-Jedzonko
+Jedzonko Aplication
 Team work in ScrumLab at Coderslab
