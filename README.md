@@ -1,0 +1,2 @@
+# KATSPYW06PYTScrumLab
+Jedzonko
