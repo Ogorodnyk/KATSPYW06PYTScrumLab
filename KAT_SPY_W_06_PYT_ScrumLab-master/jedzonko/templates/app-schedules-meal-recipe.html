@@ -1,0 +1,79 @@
+{% extends "__base__.html" %}
+{% block title %}{% endblock %}
+{% block content %}
+<div class="dashboard-content border-dashed p-3 m-4 view-height">
+    <div class="row border-bottom border-3 p-1 m-1">
+        <div class="col noPadding">
+            <h3 class="color-header text-uppercase">DODAJ PRZEPIS DO PLANU</h3>
+        </div>
+    </div>
+
+    <div class="schedules-content">
+        <form method="post" action="/plan/add-recipe/">
+            <div class="form-group row">
+                <label for="choosePlan"
+                       class="col-sm-2 label-size col-form-label">
+                    Wybierz plan
+                </label>
+                <div class="col-sm-3">
+                    <select name="plan_recipe" class="form-control" id="choosePlan">
+                        <option value="">Select...</option>
+                        {% for plan in plans %}
+                            <option value="{{ plan.id }}">{{ plan.name }}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+            </div>
+            <div class="form-group row">
+                <label for="name" class="col-sm-2 label-size col-form-label">
+                    Nazwa posiłku
+                </label>
+                <div class="col-sm-10">
+                    <select class="form-control" id="day" name="meal_name">
+                        <option value="">Select...</option>
+                        {% for meal in meal_names %}
+                        <option value="{{ meal }}">{{ meal }}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+            </div>
+            <div class="form-group row">
+                <label for="number" class="col-sm-2 label-size col-form-label">
+                    Numer posiłku
+                </label>
+                <div class="col-sm-2">
+                    <input type="number" class="form-control" value="" id="number"
+                           name="number" placeholder="Numer posiłku" min="1" max="5">
+                </div>
+            </div>
+            <div class="form-group row">
+                <label for="recipie" class="col-sm-2 label-size col-form-label">
+                    Przepis
+                </label>
+                <div class="col-sm-4">
+                    <select class="form-control" id="recipie" name="recipe">
+                        <option value="">Select...</option>
+                        {% for recipe in recipes %}
+                            <option value="{{ recipe.id }}">{{ recipe.name }}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+            </div>
+            <div class="form-group row">
+                <label for="day" class="col-sm-2 label-size col-form-label">
+                    Dzień
+                </label>
+                <div class="col-sm-2">
+                    <select class="form-control" id="day" name="day">
+                        <option value="">Select...</option>
+                        {% for day in days %}
+                        <option value="{{ day.id }}">{{ day.name }}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+            </div>
+            <input type="submit" name="submit" value="Zapisz" class="btn btn-success rounded-0 pt-0 pb-0 pr-4 pl-4">
+        </form>
+    </div>
+</div>
+{% endblock content %}
